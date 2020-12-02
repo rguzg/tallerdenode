@@ -95,9 +95,11 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .m-header_buttons > a{
-    color: var(--node-verde-obscuro);
+    color: var(--node-verde-obscuro) !important;
     font-weight: 600;
     padding: 0 8px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .m-header_buttons > span{

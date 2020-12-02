@@ -25,6 +25,7 @@
     
     <!-- Scripts -->
     <script defer src="../static/js/home.js"></script>
+    <script defer src="../static/js/header.js"></script>
     <script defer src="../static/js/table.js"></script>
     <script defer src="../static/js/jwt-decode.js"></script>
 
@@ -40,8 +41,8 @@
                 </div>
                 <div class="col-5 m-header_buttons">
                     <span id="username"></span>
-                    <a href="/buscar.html">Buscar</a>
-                    <a href="" id="logout">Cerrar Sesión</a>
+                    <a href="buscar.html">Buscar</a>
+                    <a id="logout">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
@@ -51,14 +52,12 @@
                     <h3>Empleados</h3>
                 </div>
                 <div class="col-3 d-flex justify-content-end">
-                    <input class="btn h-background-node m-add-button" type="button" type="submit" value="Nuevo Empleado" id="login">
+                    <input class="btn h-background-node m-add-button" type="button" value="Nuevo Empleado" id="add">
                 </div>
            </div>
            <div class="row">
             <div class="col-12" id="table-container" style="padding-bottom: 20px;
-            padding-top: 20px;">
-
-            </div>
+            padding-top: 20px;"></div>
            </div>
         </div>
     </div>

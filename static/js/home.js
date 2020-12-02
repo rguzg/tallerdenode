@@ -4,6 +4,9 @@ const url = "http://localhost:88";
 let token;
 let headers = {};
 
+let add_button = document.querySelector('#add');
+
+
 window.onload = () => {
     token = sessionStorage.getItem("token");
 
@@ -26,11 +29,6 @@ window.onload = () => {
     }
 };
 
-function logout() {
-    sessionStorage.removeItem("token");
-    window.location.href = "login.html";
-}
-
 async function getEmployees() {
     const response = await fetch(`${url}/empleados`, {
         method: "GET",
@@ -42,4 +40,8 @@ async function getEmployees() {
 
     document.querySelector("#table-container").appendChild(table);
 }
+
+add_button.addEventListener('click', () => {
+    window.location.href = "add.html";
+})
 
