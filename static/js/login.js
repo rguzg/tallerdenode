@@ -12,6 +12,8 @@ let password_valid = false;
 
 window.onload = () => {
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("edit_id");
+    sessionStorage.removeItem("delete_id");
 };
 
 async function login() {

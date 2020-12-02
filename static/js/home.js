@@ -8,6 +8,9 @@ let add_button = document.querySelector("#add");
 
 window.onload = () => {
     token = sessionStorage.getItem("token");
+    
+    sessionStorage.removeItem("edit_id");
+    sessionStorage.removeItem("delete_id");
 
     if (!token) {
         logout();
