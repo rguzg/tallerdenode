@@ -12,32 +12,34 @@ let password_valid = false;
 
 window.onload = () => {
     sessionStorage.removeItem("token");
-}
+};
 
 async function login() {
-    const response = await fetch(`${url}/usuario/login`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            username: usuario.value,
-            password: password.value,
-        }),
-    });
-
-    if (response.status == 400) {
-        let alert = document.querySelector("#username-alert");
-        alert.classList.remove("h-display-none");
-        alert.classList.add("show");
-    } else if (response.status == 200) {
-        const json = await response.json();
-        // TODO: Realizar una mejor implementación
-        const token = json["message"]["token"];
-        sessionStorage.setItem("token", token);
-
-        window.location.href = 'home.html'
-    } else if (response.status == 500) {
+    try {
+        let response = await fetch(`${url}/usuario/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: usuario.value,
+                password: password.value,
+            }),
+        });
+    
+        if (response.status == 400) {
+            let alert = document.querySelector("#username-alert");
+            alert.classList.remove("h-display-none");
+            alert.classList.add("show");
+        } else if (response.status == 200) {
+            let json = await response.json();
+            // TODO: Realizar una mejor implementación
+            let token = json["message"]["token"];
+            sessionStorage.setItem("token", token);
+    
+            window.location.href = "home.html";
+        }
+    } catch (error) {
         let alert = document.querySelector("#server-alert");
         alert.classList.add("show");
     }
@@ -75,4 +77,8 @@ password.addEventListener("change", () => {
     }
 });
 
-login_button.addEventListener("click", login);
+login_button.addEventListener("click", () => {
+    if (usuario_valid && password_valid) {
+        login();
+    }
+});
