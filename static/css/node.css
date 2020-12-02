@@ -74,6 +74,7 @@ h1, h2, h3, h4, h5, h6{
     background-color: #ffffff; 
     height: 50px;
     padding: 4px 20px;
+    margin-bottom: 40px;
 }
 
 /* Header Components */
@@ -103,6 +104,17 @@ h1, h2, h3, h4, h5, h6{
     padding: 0 8px;
 }
 
+/* Title Module */
+.m-title{
+    padding: 0 55px;
+}
+
+/* Add Button Module */
+.m-add-button{
+    padding: 0 20px;
+    display: flex;
+    height: 100%;
+}
 
 /* Helpers */
 .h-background-node{
