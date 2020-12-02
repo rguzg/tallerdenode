@@ -24,6 +24,21 @@ h1, h2, h3, h4, h5, h6{
     margin-bottom: 0;
 } 
 
+input{
+    width: 300px;
+    margin-bottom: 16px;
+}
+
+label{
+    margin-top: 16px;
+}
+
+td{
+    max-width: 60px;
+    overflow: hidden;
+}
+
+
 /* Layout */
 
 .l-login{
@@ -36,8 +51,8 @@ h1, h2, h3, h4, h5, h6{
 
 /* Modules */
 
-/* Form Module */
-.m-form{
+/* Login Module */
+.m-login{
     width: 500px;
     height: 500px;
     display: flex;
@@ -46,13 +61,13 @@ h1, h2, h3, h4, h5, h6{
     align-items: center;
 }
 
-.m-form > input{
-    width: 300px;
-    margin-bottom: 16px;
-}
-
-.m-form > label{
-    margin-top: 16px;
+.m-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 /* Form Components */
@@ -84,6 +99,7 @@ h1, h2, h3, h4, h5, h6{
     align-items: center;
     justify-content: space-evenly;
     width: 200px;
+    cursor: pointer;
 }
 
 .m-header_buttons{
@@ -116,6 +132,20 @@ h1, h2, h3, h4, h5, h6{
     padding: 0 20px;
     display: flex;
     height: 100%;
+    justify-content: center;
+}
+
+/* Module Not Found */
+.m-not-found{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Form Control Module */
+.form-control{
+    color: #000000;
 }
 
 /* Helpers */
