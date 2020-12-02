@@ -19,6 +19,11 @@ html, body{
     position: relative;
 }
 
+h1, h2, h3, h4, h5, h6{
+    font-weight: 600;
+    margin-bottom: 0;
+} 
+
 /* Layout */
 
 .l-login{
@@ -60,6 +65,44 @@ html, body{
     height: 50%;
     width: 50%;
 }
+
+/* Header Module */
+.m-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff; 
+    height: 50px;
+    padding: 4px 20px;
+}
+
+/* Header Components */
+
+.m-header_logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 200px;
+}
+
+.m-header_buttons{
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+}
+
+.m-header_buttons > a{
+    color: var(--node-verde-obscuro);
+    font-weight: 600;
+    padding: 0 8px;
+}
+
+.m-header_buttons > span{
+    padding: 0 8px;
+}
+
 
 /* Helpers */
 .h-background-node{
