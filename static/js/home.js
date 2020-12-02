@@ -4,8 +4,7 @@ const url = "http://localhost:88";
 let token;
 let headers = {};
 
-let add_button = document.querySelector('#add');
-
+let add_button = document.querySelector("#add");
 
 window.onload = () => {
     token = sessionStorage.getItem("token");
@@ -36,12 +35,11 @@ async function getEmployees() {
     });
 
     const json = await response.json();
-    let table = employeesTable(json["message"]["results"]);
+    let table = employeesTable(json["message"]["results"], true);
 
     document.querySelector("#table-container").appendChild(table);
 }
 
-add_button.addEventListener('click', () => {
+add_button.addEventListener("click", () => {
     window.location.href = "add.html";
-})
-
+});

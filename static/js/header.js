@@ -1,4 +1,5 @@
 let logout_button = document.querySelector('#logout');
+let logo_button = document.querySelector('#logo');
 
 function logout() {
     sessionStorage.removeItem("token");
@@ -6,3 +7,6 @@ function logout() {
 }
 
 logout_button.addEventListener('click', logout);
+logo_button.addEventListener('click', () => {
+    window.location.href = "home.html";
+});
