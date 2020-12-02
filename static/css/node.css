@@ -1,0 +1,77 @@
+:root{
+    --node-negro: #333333;
+    --node-verde-obscuro: #336633;
+    --node-verde: #339933;
+    --node-verde-claro: #66cc33;
+}
+
+*{ 
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Layout */
+
+.l-login{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modules */
+
+/* Form Module */
+.m-form{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-form > input{
+    width: 300px;
+    margin-bottom: 16px;
+}
+
+.m-form > label{
+    margin-top: 16px;
+}
+
+/* Form Components */
+.m-form_button{
+    margin-top: 16px;
+}
+
+/* Logo Module */
+.m-logo{
+    height: 50%;
+    width: 50%;
+}
+
+/* Helpers */
+.h-background-node{
+    background-color: var(--node-verde);
+    color: #ffffff;
+}
+
+.h-background-node:hover{
+    background-color: var(--node-verde-claro);
+    color: #ffffff;
+}
+
+.h-display-none{
+    display: none;
+}
