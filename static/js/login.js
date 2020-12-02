@@ -10,6 +10,10 @@ const login_button = document.querySelector("#login");
 let usuario_valid = false;
 let password_valid = false;
 
+window.onload = () => {
+    sessionStorage.removeItem("token");
+}
+
 async function login() {
     const response = await fetch(`${url}/usuario/login`, {
         method: "POST",
