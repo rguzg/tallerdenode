@@ -1,8 +1,8 @@
-function employeesTable(employees) {
+function employeesTable(employees, buttons = false) {
     let table = document.createElement("table");
     table.classList.add("table", "table-bordered", "table-hover", "table-sm", "table-striped");
 
-    let columnNames = ["#", "Nombre", "Apellidos", "Teléfono", "Correo", "Dirección"];
+    let columnNames = ["#", "Nombre", "Apellidos", "Teléfono", "Correo", "Dirección", ""];
 
     let head = document.createElement("thead");
     let headerRow = document.createElement("tr");
@@ -40,6 +40,34 @@ function employeesTable(employees) {
             row.appendChild(column);
         }
 
+        // Delete and edit buttons
+        if (buttons) {
+            button_container = document.createElement("td");
+            button_container.classList.add("text-center");
+
+            edit_button = document.createElement("button");
+            delete_button = document.createElement("button");
+
+            edit_button.classList.add("btn", "btn-primary", "mr-2");
+            edit_button.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+
+            delete_button.classList.add("btn", "btn-danger");
+            delete_button.innerHTML = '<i class="fas fa-trash-alt"></i>';
+
+            button_container.appendChild(edit_button);
+            button_container.appendChild(delete_button);
+
+            delete_button.addEventListener('click', () => {
+                deleteEmployee(element['id']);
+            });
+
+            edit_button.addEventListener('click', () => {
+                editEmployee(element['id']);
+            });
+
+            row.appendChild(button_container);
+        }
+
         rows.push(row);
         counter++;
     });
@@ -52,4 +80,16 @@ function employeesTable(employees) {
     table.appendChild(tableBody);
 
     return table;
+}
+
+function deleteEmployee(id) {
+    // TODO: Realizar una mejor implementación
+    sessionStorage.setItem("delete_id", id);
+    alert(`Deleting ${id}`);
+}
+
+function editEmployee(id) {
+    // TODO: Realizar una mejor implementación
+    sessionStorage.setItem("edit_id", id);
+    window.location.href = "edit.html";
 }
