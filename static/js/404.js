@@ -1,11 +1,9 @@
 function notfound(type) {
     let content = document.querySelector("#content");
-
-    let row = document.createElement("div");
-    row.classList.add("row");
-
+    
     let container = document.createElement("div");
     container.classList.add("col-12", "m-not-found");
+    container.id = "content";
 
     let image = document.createElement("img");
     image.setAttribute("width", 400);
@@ -43,6 +41,5 @@ function notfound(type) {
             break;
     }
 
-    row.appendChild(container);
-    content.replaceWith(row);
+    content.replaceWith(container);
 }
