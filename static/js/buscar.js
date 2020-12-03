@@ -46,21 +46,17 @@ async function searchEmployees(nombre) {
         if (old_table) {
             document.querySelector("#table-container").replaceChild(table, old_table);
         } else {
-            try {
-                document.querySelector("#table-container").appendChild(table);
-            } catch {
-                // En caso de que no exista #table-container se crea de nuevo
-                let table_container = document.createElement("div");
-                table_container.classList.add("col-12");
-                table_container.id = "table-container";
+            // En caso de que no exista #table-container se crea de nuevo
+            let table_container = document.createElement("div");
+            table_container.classList.add("col-12");
+            table_container.id = "table-container";
 
-                let content = document.querySelector("#content")
-                content.removeChild(content.querySelector('img'));
-                content.removeChild(content.querySelector('h4'));
-                content.appendChild(table_container);
+            let content = document.querySelector("#content");
+            content.removeChild(content.querySelector('img'));
+            content.removeChild(content.querySelector('h4'));
+            content.appendChild(table_container);
 
-                document.querySelector("#table-container").appendChild(table);
-            }
+            document.querySelector("#table-container").appendChild(table);
         }
     }
 }
