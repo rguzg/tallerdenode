@@ -17,7 +17,7 @@ function notfound(type) {
             message.classList.add("mb-2");
             message.textContent = "No se encontró el empleado solicitado";
 
-            image.setAttribute("src", "../static/img/404.png");
+            image.setAttribute("src", "/static/img/404.png");
 
             let home = document.createElement("a");
             home.setAttribute("href", "home.html");
@@ -32,7 +32,7 @@ function notfound(type) {
             message.classList.add("mb-2");
             message.textContent = "No hay ningún empleado";
 
-            image.setAttribute("src", "../static/img/nothing.png");
+            image.setAttribute("src", "/static/img/nothing.png");
 
             container.appendChild(message);
 
