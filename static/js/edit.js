@@ -1,5 +1,4 @@
-// const url = 'https://nodejssa-backend.herokuapp.com/';
-const url = "http://localhost:88";
+const url = 'https://nodejssa-backend.herokuapp.com/';
 
 const nombre = document.querySelector("#nombre");
 const nombre_message = document.querySelector("#nombre-message");

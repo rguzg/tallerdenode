@@ -1,5 +1,4 @@
-// const url = 'https://nodejssa-backend.herokuapp.com/';
-const url = "http://localhost:88";
+const url = 'https://nodejssa-backend.herokuapp.com/';
 
 let token;
 let headers = {};
