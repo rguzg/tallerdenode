@@ -1,6 +1,7 @@
 function employeesTable(employees, buttons = false) {
     let table = document.createElement("table");
     table.classList.add("table", "table-bordered", "table-hover", "table-sm", "table-striped");
+    table.id = "empleados-tabla"
 
     let columnNames = ["#", "Nombre", "Apellidos", "Teléfono", "Correo", "Dirección", ""];
 
@@ -40,7 +41,7 @@ function employeesTable(employees, buttons = false) {
             row.appendChild(column);
         }
 
-        // Delete and edit buttons
+        // Botones de eliminar y editar
         if (buttons) {
             button_container = document.createElement("td");
             button_container.classList.add("text-center");
@@ -58,11 +59,14 @@ function employeesTable(employees, buttons = false) {
             button_container.appendChild(delete_button);
 
             delete_button.addEventListener('click', () => {
-                deleteEmployee(element['id']);
+                sessionStorage.setItem("delete_id", element['id']);
+                $('#borrar').modal('show');
+
             });
 
             edit_button.addEventListener('click', () => {
-                editEmployee(element['id']);
+                sessionStorage.setItem("edit_id", element['id']);
+                window.location.href = "edit.html";
             });
 
             row.appendChild(button_container);
@@ -82,14 +86,40 @@ function employeesTable(employees, buttons = false) {
     return table;
 }
 
-function deleteEmployee(id) {
-    // TODO: Realizar una mejor implementación
-    sessionStorage.setItem("delete_id", id);
-    alert(`Deleting ${id}`);
-}
+$('#borrar').on('hidden.bs.modal', (e) => {
+    sessionStorage.removeItem("delete_id");
+});
 
-function editEmployee(id) {
-    // TODO: Realizar una mejor implementación
-    sessionStorage.setItem("edit_id", id);
-    window.location.href = "edit.html";
-}
+$('#borrar').on('show.bs.modal', (e) => {
+    if(!(sessionStorage.getItem("delete_id"))){
+        $('#borrar').modal('hide');
+    }
+});
+
+document.querySelector('#eliminar').addEventListener('click', async () => {
+    let parent = document.querySelector('#eliminar');
+    let id = sessionStorage.getItem("delete_id");
+
+    parent.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+    parent.toggleAttribute('disabled');
+
+    let response = await fetch(`${url}/empleados/${id}`, {
+        method: "DELETE",
+        headers
+    });
+
+    parent.innerHTML = 'Eliminar';
+    parent.toggleAttribute('disabled');
+    
+    let json = await response.json();
+
+    if(json.status == 200){
+        document.querySelector('#empleados-tabla').remove();
+        getEmployees();
+        $('#borrar').modal('hide');
+    } else {
+        let alert = document.querySelector('#server-alert');
+        alert.classList.toggle('h-display-none');
+        alert.classList.toggle('show');
+    }
+})

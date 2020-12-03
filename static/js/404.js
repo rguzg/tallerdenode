@@ -12,7 +12,7 @@ function notfound(type) {
     image.setAttribute("width", 400);
     image.setAttribute("height", 400);
 
-    let message; 
+    let message;
 
     switch (type) {
         case "edit":
@@ -20,6 +20,7 @@ function notfound(type) {
             message.classList.add("mb-2");
             message.textContent = "No se encontró el empleado solicitado";
 
+            sessionStorage.removeItem("edit_id");
             break;
 
         default:
