@@ -85,9 +85,9 @@ async function edit() {
         body: JSON.stringify({
             nombre: nombre.value,
             apellidos: apellidos.value,
-            telefono: telefono.value || null,
-            correo: correo.value || null,
-            direccion: direccion.value || null,
+            telefono: telefono.value,
+            correo: correo.value,
+            direccion: direccion.value,
         }),
     });
 
@@ -99,7 +99,6 @@ async function edit() {
         let alert = document.querySelector("#success-alert");
         alert.classList.remove("h-display-none");
         alert.classList.add("show");
-        sessionStorage.removeItem("edit_id");
     } else if (response.status == 500) {
         let alert = document.querySelector("#server-alert");
         alert.classList.remove("h-display-none");
@@ -172,7 +171,7 @@ correo.addEventListener("change", () => {
 });
 
 add_button.addEventListener("click", () => {
-    if (nombre_valid && apellidos_valid && telefono_valid && correo_valid) {
+    if (nombre_valid && apellidos_valid && telefono_valid && correo_valid && sessionStorage.getItem("edit_id")) {
         edit();
     }
 });

@@ -51,9 +51,9 @@ async function add() {
         body: JSON.stringify({
             nombre: nombre.value,
             apellidos: apellidos.value,
-            telefono: telefono.value || null,
-            correo: correo.value || null,
-            direccion: direccion.value || null
+            telefono: telefono.value,
+            correo: correo.value ,
+            direccion: direccion.value,
         }),
     });
 
@@ -65,11 +65,29 @@ async function add() {
         let alert = document.querySelector("#success-alert");
         alert.classList.remove("h-display-none");
         alert.classList.add("show");
+
+        cleanForm();
     } else if (response.status == 500) {
         let alert = document.querySelector("#server-alert");
         alert.classList.remove("h-display-none");
         alert.classList.add("show");
     }
+}
+
+function cleanForm() {
+    nombre.value = "";
+    nombre.classList.remove("is-valid");
+
+    apellidos.value = "";
+    apellidos.classList.remove("is-valid");
+
+    telefono.value = "";
+    telefono.classList.remove("is-valid");
+
+    correo.value = "";
+    correo.classList.remove("is-valid");
+
+    direccion.value = "";
 }
 
 nombre.addEventListener("change", () => {
@@ -136,8 +154,8 @@ correo.addEventListener("change", () => {
     }
 });
 
-add_button.addEventListener('click', () => {
-    if(nombre_valid && apellidos_valid && telefono_valid && correo_valid){
+add_button.addEventListener("click", () => {
+    if (nombre_valid && apellidos_valid && telefono_valid && correo_valid) {
         add();
     }
 });
