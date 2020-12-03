@@ -1,0 +1,179 @@
+:root {
+    --node-negro: #333333;
+    --node-verde-obscuro: #336633;
+    --node-verde: #339933;
+    --node-verde-claro: #66cc33;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Open Sans", sans-serif;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+input {
+    width: 300px;
+    margin-bottom: 16px;
+}
+
+label {
+    margin-top: 16px;
+}
+
+td {
+    max-width: 60px;
+    overflow: hidden;
+}
+
+/* Layout */
+
+.l-login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modules */
+
+/* Login Module */
+.m-login {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Form Components */
+.m-form_button {
+    margin-top: 16px;
+}
+
+/* Logo Module */
+.m-logo {
+    height: 50%;
+    width: 50%;
+}
+
+/* Header Module */
+.m-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 50px;
+    padding: 4px 20px;
+    margin-bottom: 40px;
+}
+
+/* Header Components */
+
+.m-header_logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 200px;
+    cursor: pointer;
+}
+
+.m-header_buttons {
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+}
+
+.m-header_buttons > a {
+    color: var(--node-verde-obscuro) !important;
+    font-weight: 600;
+    padding: 0 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.m-header_buttons > span {
+    padding: 0 8px;
+}
+
+/* Title Module */
+.m-title {
+    padding: 0 55px;
+}
+
+/* Add Button Module */
+.m-add-button {
+    padding: 0 20px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+/* Module Not Found */
+.m-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.page-link{
+    color: var(--node-verde);
+    cursor: pointer;
+}
+
+.page-link.active{
+    background-color: var(--node-verde);
+    color: #ffffff;
+}
+
+/* Form Control Module */
+.form-control {
+    color: #000000;
+}
+
+/* Helpers */
+.h-background-node {
+    background-color: var(--node-verde);
+    color: #ffffff;
+}
+
+.h-background-node:hover {
+    background-color: var(--node-verde-claro);
+    color: #ffffff;
+}
+
+.h-display-none {
+    display: none;
+}
+
+#table-container {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
