@@ -20,7 +20,7 @@ function notfound(type) {
             image.setAttribute("src", "static/img/404.png");
 
             let home = document.createElement("a");
-            home.setAttribute("href", "home.html");
+            home.setAttribute("href", "index.html");
             home.innerText = "Regresar al inicio";
 
             sessionStorage.removeItem("edit_id");

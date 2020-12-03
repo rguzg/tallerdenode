@@ -1,4 +1,4 @@
-const url = 'https://nodejssa-backend.herokuapp.com/';
+const url = 'https://nodejssa-backend.herokuapp.com';
 
 let token;
 let headers = {};

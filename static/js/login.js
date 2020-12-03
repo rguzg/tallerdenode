@@ -1,4 +1,4 @@
-const url = 'https://nodejssa-backend.herokuapp.com/';
+const url = 'https://nodejssa-backend.herokuapp.com';
 
 const usuario = document.querySelector("#usuario");
 const usuario_message = document.querySelector("#usuario-message");
@@ -38,7 +38,7 @@ async function login() {
             let token = json["message"]["token"];
             sessionStorage.setItem("token", token);
     
-            window.location.href = "home.html";
+            window.location.href = "index.html";
         }
     } catch (error) {
         let alert = document.querySelector("#server-alert");
