@@ -1,5 +1,5 @@
 function pagination(pages) {
-    let offset = 1;
+    let offset = 20;
     let container = document.createElement("nav");
     let list = document.createElement("ul");
     list.classList.add("pagination");
