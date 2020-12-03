@@ -38,9 +38,14 @@ async function getEmployees() {
     });
 
     const json = await response.json();
-    let table = employeesTable(json["message"]["results"], true);
 
-    document.querySelector("#table-container").appendChild(table);
+    if(json["message"]["results"].length == 0){
+        notfound("employees");
+    } else {
+        let table = employeesTable(json["message"]["results"], true);
+        document.querySelector("#table-container").appendChild(table);
+    }
+
 }
 
 add_button.addEventListener("click", () => {
