@@ -143,6 +143,16 @@ td {
     padding: 20px;
 }
 
+.page-link{
+    color: var(--node-verde);
+    cursor: pointer;
+}
+
+.page-link.active{
+    background-color: var(--node-verde);
+    color: #ffffff;
+}
+
 /* Form Control Module */
 .form-control {
     color: #000000;

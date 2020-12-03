@@ -42,8 +42,18 @@ async function getEmployees() {
     if(json["message"]["results"].length == 0){
         notfound("employees");
     } else {
-        let table = employeesTable(json["message"]["results"], true);
-        document.querySelector("#table-container").appendChild(table);
+        if(json["message"]["count"] > json["message"]["results"].length){
+            let pages = json["message"]["count"] / json["message"]["results"].length;
+            let pagesContainer = pagination(pages);
+
+            document.querySelector("#pages").appendChild(pagesContainer);
+
+            let table = employeesTable(json["message"]["results"], true);
+            document.querySelector("#table-container").appendChild(table);
+        } else {
+            let table = employeesTable(json["message"]["results"], true);
+            document.querySelector("#table-container").appendChild(table);
+        }
     }
 
 }
