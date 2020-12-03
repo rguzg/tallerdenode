@@ -42,7 +42,7 @@ async function getEmployees() {
         notfound("employees");
     } else {
         if(json["message"]["count"] > json["message"]["results"].length){
-            let pages = json["message"]["count"] / json["message"]["results"].length;
+            let pages = Math.ceil(json["message"]["count"] / json["message"]["results"].length);
             let pagesContainer = pagination(pages);
 
             document.querySelector("#pages").appendChild(pagesContainer);
